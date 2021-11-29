@@ -33,19 +33,24 @@
             <p>
                 <div id="resultat"></div>
                 <div id="nombreTentative"></div>
-                <div id=historique></div>
+                <div id=historique>Historique : </div>
             </p>
             <script>
 
                 var niveauJeu = parseInt(document.getElementById('niveau').value);
+                var tentativePossible = 5;
+                var tentativeRestante = tentativePossible-NbTentative;
 
                 if(niveauJeu==1) {
                     var NbJoueur = Math.floor(Math.random() * 11);
                     var NbTentative = 0;
+                    var historique = 0;
 
                     function reponse () {
                         var NbAppli = document.form.tentative.value;
+                        var tentativePossible = 5;
                         NbTentative++;
+                        NbAppli;
 
                         if (NbAppli < NbJoueur) {
                             document.getElementById('resultat').innerHTML="Trop petit";
@@ -58,7 +63,8 @@
                             document.getElementById('resultat').innerHTML="<strong>GAME OVER !</strong>";
                             }
                         
-                            document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s)";
+                        document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s), il vous en reste "+ (tentativePossible-NbTentative);
+                        document.getElementById('historique').innerHTML+=" "+ NbAppli;
                     } 
                     
                 } else if (niveauJeu==2) {
@@ -67,7 +73,9 @@
 
                     function reponse () {
                         var NbAppli = document.form.tentative.value;
+                        var tentativePossible = 5;
                         NbTentative++;
+                        NbAppli;
 
                         if (NbAppli < NbJoueur) {
                             document.getElementById('resultat').innerHTML="Trop petit";
@@ -80,7 +88,8 @@
                             document.getElementById('resultat').innerHTML="<strong>GAME OVER !</strong>";
                             }
                         
-                            document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s)";
+                        document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s), il vous en reste "+ (tentativePossible-NbTentative);
+                        document.getElementById('historique').innerHTML+=" "+ NbAppli;
                     }
                 } else if (niveauJeu==3) {
                     var NbJoueur = Math.floor(Math.random() * 21);
@@ -88,7 +97,9 @@
 
                     function reponse () {
                         var NbAppli = document.form.tentative.value;
+                        var tentativePossible = 5;
                         NbTentative++;
+                        NbAppli;
 
                         if (NbAppli < NbJoueur) {
                             document.getElementById('resultat').innerHTML="Trop petit";
@@ -101,11 +112,10 @@
                             document.getElementById('resultat').innerHTML="<strong>GAME OVER !</strong>";
                             }
                         
-                            document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s)";
+                        document.getElementById('nombreTentative').innerHTML="Vous êtes à : "+ NbTentative + " tentative(s), il vous en reste "+ (tentativePossible-NbTentative);
+                        document.getElementById('historique').innerHTML+=" "+ NbAppli;
                     }
                 }
-
-
 
             </script>
         </div>
