@@ -1,8 +1,16 @@
 <?php
+    require_once("connect.php");
+    $verif="SELECT * FROM user";
+    $reponse=$bdd->query($verif);
+
+    foreach ($reponse as $_value) {
+        $id=$_value[0];
+        $login=$_value[1];
+        $mdp=$_value[2];
+    
+
     if ((!empty($_GET["id"])) && (!empty($_GET["mdp"]))) {
-        if ($_GET["id"]=="fred" && $_GET["mdp"]=="fred") {
-            session_start();
-            $_SESSION['connect']='ok';
+        if ($login==$_GET['id'] && $mdp==$_GET['mdp']) {
             $identifiant=$_GET['id'];
             setcookie("back",$identifiant);
             header('location:back.php');
@@ -12,4 +20,5 @@
     }else{
         header('Location:index.php');
     }
+}
 ?>

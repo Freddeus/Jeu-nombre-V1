@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if (isset($_SESSION['connect'])){
+    echo "</br><div style='color: blue; font-size: 2em' ><strong>Administrez votre site</strong></div>";
+    }else{
+        header('location:access_denied.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
